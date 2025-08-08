@@ -1,0 +1,2538 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Club — Publish • Compete • Learn</title>
+    <meta name="description" content="Join Research Club led by Ishaan &amp; Ronit. Explore research papers, compete in science fairs, and develop your academic passions.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Research Club — Publish • Compete • Learn">
+    <meta property="og:description" content="Join Research Club led by Ishaan &amp; Ronit. Explore research papers, compete in science fairs, and develop your academic passions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://research-club.github.io">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research Club — Publish • Compete • Learn">
+    <meta name="twitter:description" content="Join Research Club led by Ishaan &amp; Ronit. Explore research papers, compete in science fairs, and develop your academic passions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Research Club",
+        "description": "A student-led research organization focused on academic exploration and publication",
+        "url": "https://research-club.github.io",
+        "founder": [
+            {"@type": "Person", "name": "Ishaan"},
+            {"@type": "Person", "name": "Ronit"}
+        ]
+    }
+    </script>
+    
+    <style>
+        /* CSS Variables - Color Palette from Images */
+        :root {
+            --bg: #FAF6F0;
+            --surface: #FFFFFF;
+            --ink: #1F1F1F;
+            --muted: #6F7175;
+            --border: #E8E5DF;
+            --tan: #C49A6C;
+            --sage: #7A8C74;
+            --sand: #D9C7A6;
+            --ink-contrast: #0F0F0F;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--ink);
+            background-color: var(--bg);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--tan);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b38a5a;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--ink);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--tan);
+            color: var(--tan);
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Chips */
+        .chip {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--sage);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .chip:hover {
+            background: #6a7c64;
+        }
+        
+        .chip.active {
+            background: var(--tan);
+        }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles */
+        *:focus {
+            outline: 2px solid var(--tan);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--tan);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 246, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+        
+        .nav-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--tan);
+            border-bottom-color: var(--tan);
+        }
+        
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--ink);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(31,31,31,.45), rgba(31,31,31,.15)), 
+                        url('https://images.unsplash.com/photo-1523240798131-8b6c83ea8e5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Why Join Section */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .why-card h3 {
+            color: var(--tan);
+            margin-bottom: 1rem;
+        }
+        
+        /* Tracks Section */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .track-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 16/10;
+        }
+        
+        .track-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .track-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .track-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+        }
+        
+        .track-overlay h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                flex-direction: column;
+                padding: 2rem;
+                border-top: 1px solid var(--border);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .why-grid,
+            .tracks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Featured Papers Carousel */
+        .carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            width: 100%;
+            flex-shrink: 0;
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-sizing: border-box;
+        }
+        
+        .carousel-slide h3 {
+            color: var(--tan);
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-slide .authors {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .carousel-slide .tags {
+            margin-bottom: 1rem;
+        }
+        
+        .carousel-slide .abstract {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .carousel-btn {
+            background: var(--tan);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .carousel-btn:hover {
+            background: #b38a5a;
+            transform: scale(1.1);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--tan);
+        }
+        
+        /* Papers Section */
+        .papers-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-controls select {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+        }
+        
+        .featured-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .featured-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--tan);
+        }
+        
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .paper-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .paper-card.featured::before {
+            content: "Featured";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--tan);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .paper-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .paper-content {
+            padding: 1.5rem;
+        }
+        
+        .paper-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--ink);
+        }
+        
+        .paper-authors {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .paper-year {
+            color: var(--tan);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .paper-tags {
+            margin-bottom: 1rem;
+        }
+        
+        .paper-abstract {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .paper-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .paper-actions .btn {
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+        }
+        
+        /* Admin Section */
+        .admin-section {
+            margin-bottom: 2rem;
+        }
+        
+        .admin-toggle {
+            background: var(--sage);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .remove-paper-btn {
+            background-color: #dc3545 !important;
+            color: white !important;
+            border-color: #dc3545 !important;
+        }
+        
+        .remove-paper-btn:hover {
+            background-color: #c82333 !important;
+            border-color: #bd2130 !important;
+        }
+        
+        .admin-form {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .admin-form.active {
+            display: block;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--ink);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--surface);
+            border-radius: 12px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+        
+        .modal-close:hover {
+            color: var(--ink);
+        }
+        
+        .pdf-placeholder {
+            background: var(--bg);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            color: var(--muted);
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--muted);
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .papers-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-controls {
+                justify-content: center;
+            }
+            
+            .papers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-actions {
+                flex-direction: column;
+            }
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--tan);
+            border: 4px solid var(--surface);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+        
+        .timeline-content h3 {
+            color: var(--tan);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-date {
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Competitions Section */
+        .competitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .competition-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .competition-card h3 {
+            color: var(--tan);
+            margin-bottom: 1rem;
+        }
+        
+        .competition-card p {
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--tan);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1rem;
+        }
+        
+        .member-role {
+            color: var(--sage);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg);
+        }
+        
+        .faq-question[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--tan);
+            transition: transform 0.2s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            color: var(--tan);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-details {
+            margin-top: 1.5rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-action {
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3,
+        .footer-section h4 {
+            color: var(--tan);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--tan);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--tan);
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+        
+        /* Additional responsive adjustments */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+            }
+            
+            .timeline-marker {
+                left: 20px !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .competitions-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Comprehensive Evaluation of Advanced Water Filtration Techniques: Assessing Efficacy in Removing Hazardous Contaminants and Inhibiting Bacterial Proliferation","author":[{"@type":"Person","name":"C. Bhat"},{"@type":"Person","name":"J. Lathia"},{"@type":"Person","name":"A. Sajeev"}],"datePublished":"2025-01-01","abstract":"Access to clean drinking water is a fundamental necessity, yet water contamination remains a\npressing global concern. This study investigates the effectiveness of various filtration methods in\nremoving harmful contaminants—primarily nitrates, nitrites, and sulfates—from water sources\nwhile assessing bacterial presence post-filtration. We designed an innovative, eco-friendly, and\ncost-efficient filtration system and compared its performance against conventional filtration\nmethods, including reverse osmosis, activated carbon, and LifeStraw filters.\nOur results demonstrated that the newly designed filtration system effectively reduced nitrate,\nnitrite, and sulfate concentrations while minimizing bacterial presence. Contrary to prior\nassumptions, our study did not evaluate E. coli survival and reproduction but instead focused on\nculturing and quantifying bacteria already present in the water samples. The findings indicate\nthat the eco-friendly filtration system outperforms traditional methods in improving water safety,\nmaking it a viable solution for communities with limited access to clean drinking water.","keywords":"Translational Medical Science, Biomedical, Sustainability","publisher":{"@type":"Organization","name":"Research Club"}}</script></head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header scrolled">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <a href="#home" class="logo">BASIS Peoria Research Club</a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#why" class="nav-link">Why</a></li>
+                    <li><a href="#tracks" class="nav-link">Tracks</a></li>
+                    <li><a href="#papers" class="nav-link active">Papers</a></li>
+                    <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                    <li><a href="#competitions" class="nav-link">Competitions</a></li>
+                    <li><a href="#team" class="nav-link">Team</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">Join</button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Discover Your Research Passion</h1>
+                <p>Join Research Club led by Ishaan &amp; Ronit. Explore cutting-edge research, compete in science fairs, and develop your academic interests through hands-on projects.</p>
+                <div class="hero-buttons">
+                    <a href="#papers" class="btn btn-primary">View Papers</a>
+                    <a href="#contact" class="btn btn-secondary">Join the Club</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Join Section -->
+        <section id="why" class="container">
+            <div class="section-header">
+                <h2>Why Join Research Club?</h2>
+                <p>Develop essential skills, stand out in college applications, and contribute to meaningful research projects.</p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="card why-card">
+                    <h3>Explore Passions</h3>
+                    <p>Discover your interests across multiple disciplines and find your academic calling through hands-on research.</p>
+                </div>
+                
+                <div class="card why-card">
+                    <h3>Stand Out for College</h3>
+                    <p>Build a strong research portfolio that demonstrates your intellectual curiosity and analytical skills to admissions committees.</p>
+                </div>
+                
+                <div class="card why-card">
+                    <h3>Publish &amp; Present</h3>
+                    <p>Get your work published in journals and present at conferences, gaining valuable experience in academic communication.</p>
+                </div>
+                
+                <div class="card why-card">
+                    <h3>Learn Real Research</h3>
+                    <p>Master research methodologies, data analysis, and scientific writing through mentorship and collaborative projects.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tracks Section -->
+        <section id="tracks" class="container">
+            <div class="section-header">
+                <h2>Research Tracks</h2>
+                <p>Choose from diverse research areas that match your interests and career goals.</p>
+            </div>
+            
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Modern engineering laboratory with circuit boards, oscilloscopes, and electronic components arranged on a clean workbench under bright LED lighting" loading="lazy" decoding="async">
+                    <div class="track-overlay">
+                        <h3>Engineering &amp; Physics</h3>
+                        <p>Robotics, renewable energy, quantum computing, and materials science</p>
+                    </div>
+                </div>
+                
+                <div class="track-card">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Biomedical research laboratory with microscope, petri dishes, and DNA sequencing equipment on a sterile white countertop" loading="lazy" decoding="async">
+                    <div class="track-overlay">
+                        <h3>Biomedical Sciences</h3>
+                        <p>Genetics, neuroscience, drug discovery, and public health research</p>
+                    </div>
+                </div>
+                
+                <div class="track-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Political science study setup with voting ballots, demographic charts, and social research papers spread across a wooden conference table" loading="lazy" decoding="async">
+                    <div class="track-overlay">
+                        <h3>Political &amp; Social Sciences</h3>
+                        <p>Public policy, behavioral economics, social psychology, and international relations</p>
+                    </div>
+                </div>
+                
+                <div class="track-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="Business analytics workspace with charts, market research data, and financial models displayed on multiple screens in a modern office setting" loading="lazy" decoding="async">
+                    <div class="track-overlay">
+                        <h3>Business &amp; Market Research</h3>
+                        <p>Consumer behavior, market analysis, entrepreneurship, and economic modeling</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Papers Carousel -->
+        <section class="container">
+            <div class="section-header">
+                <h2>Featured Papers</h2>
+                <p>Discover our most impactful research projects and publications.</p>
+            </div>
+            
+            <div class="carousel" id="featured-carousel">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Slides will be populated by JavaScript -->
+                </div><div class="carousel-slide">
+                    <h3>Comprehensive Evaluation of Advanced Water Filtration Techniques: Assessing Efficacy in Removing Hazardous Contaminants and Inhibiting Bacterial Proliferation</h3>
+                    <div class="authors">C. Bhat, J. Lathia, A. Sajeev</div>
+                    <div class="tags">
+                        <span class="chip">Translational Medical Science</span><span class="chip">Biomedical</span><span class="chip">Sustainability</span>
+                    </div>
+                    </div><div class="carousel-slide">
+                    <h3>A Novel Multi-Omics Deep Learning Framework for Spatiotemporal Cerebral Cortex  Localization &amp; Expression</h3>
+                    <div class="authors">G. Talluri, A. Rokkam</div>
+                    <div class="tags">
+                        <span class="chip">Artificial Intelligence</span><span class="chip">Biomedical</span><span class="chip">Engineering</span>
+                    </div>
+                    
+                    </div><div class="carousel-slide">
+                    <h3>S.A.B.E.R. –Sustainable AI-automated Bioreactor  for Environment Remediation</h3>
+                    <div class="authors">I. Ranjan, A. Vemana</div>
+                    <div class="tags">
+                        <span class="chip">Environmental</span><span class="chip">Artificial Intelligence</span><span class="chip">Engineering</span><span class="chip">Renewable Energy</span><span class="chip">Sustainability</span>
+                    </div>
+                    </div><div class="carousel-slide">
+                    <h3>The Criminal Tribes Act of 1871 and its Global Legacy</h3>
+                    <div class="authors">I. Ranjan, A. Pruthy</div>
+                    <div class="tags">
+                        <span class="chip">Politics</span><span class="chip">Social Sciences</span><span class="chip">Law</span>
+                    </div>
+                    </div></div>
+                
+                
+                 </div>
+        </section>
+        
+        <!-- Papers Section -->
+        <section id="papers" class="container">
+            <div class="section-header">
+                <h2>Research Papers</h2>
+                <p>Browse our comprehensive collection of student research papers across all disciplines.</p>
+            </div>
+            
+            <!-- Admin Section -->
+            <div class="admin-section">
+                <button class="admin-toggle" id="admin-toggle">Admin Mode</button>
+                <div class="admin-form" id="admin-form">
+                    <h3>Add New Paper</h3>
+                    <form id="add-paper-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="paper-title">Title *</label>
+                                <input type="text" id="paper-title" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="paper-authors">Authors *</label>
+                                <input type="text" id="paper-authors" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="paper-year">Year *</label>
+                                <select id="paper-year" required="">
+                                    <option value="">Select Year</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paper-tags">Tags (comma-separated)</label>
+                                <input type="text" id="paper-tags" placeholder="Biomedical, Aging, Statistics">
+                            </div>
+                            <div class="form-group">
+                                <label for="paper-advisor">Advisor (optional)</label>
+                                <input type="text" id="paper-advisor">
+                            </div>
+                            <div class="form-group">
+                                <label for="paper-thumbnail">Thumbnail URL (optional)</label>
+                                <input type="url" id="paper-thumbnail" placeholder="https://images.unsplash.com/...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="paper-abstract">Abstract *</label>
+                            <textarea id="paper-abstract" required=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="paper-pdf">PDF Link *</label>
+                            <input type="url" id="paper-pdf" required="" placeholder="https://drive.google.com/...">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="paper-featured">
+                                Featured Paper
+                            </label>
+                        </div>
+                        <div class="admin-actions">
+                            <button type="submit" class="btn btn-primary">Add Paper</button>
+                            <button type="button" class="btn btn-secondary" id="export-json">Export JSON</button>
+                            <button type="button" class="btn btn-secondary" id="import-json">Import JSON</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Papers Toolbar -->
+            <div class="papers-toolbar">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search papers by title, authors, or abstract...">
+                </div>
+                
+                <div class="filter-controls">
+                    <select id="year-filter">
+                        <option value="">All Years</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    
+                    <select id="sort-by">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                    
+                    <div class="featured-toggle">
+                        <input type="checkbox" id="featured-only">
+                        <label for="featured-only">Featured only</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tag Filters -->
+            <div id="tag-filters" style="margin-bottom: 2rem;">
+                <span class="chip" onclick="toggleTagFilter('Biomedical')" data-tag="Biomedical">Biomedical</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Aging')" data-tag="Aging">Aging</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Statistics')" data-tag="Statistics">Statistics</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Engineering')" data-tag="Engineering">Engineering</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Quantum Computing')" data-tag="Quantum Computing">Quantum Computing</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Security')" data-tag="Security">Security</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Social Sciences')" data-tag="Social Sciences">Social Sciences</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Politics')" data-tag="Politics">Politics</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Technology')" data-tag="Technology">Technology</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Business')" data-tag="Business">Business</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Machine Learning')" data-tag="Machine Learning">Machine Learning</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Finance')" data-tag="Finance">Finance</span>
+            
+                <span class="chip" onclick="toggleTagFilter('AI')" data-tag="AI">AI</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Computer Vision')" data-tag="Computer Vision">Computer Vision</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Environment')" data-tag="Environment">Environment</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Sustainability')" data-tag="Sustainability">Sustainability</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Genetics')" data-tag="Genetics">Genetics</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Agriculture')" data-tag="Agriculture">Agriculture</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Economics')" data-tag="Economics">Economics</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Education')" data-tag="Education">Education</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Blockchain')" data-tag="Blockchain">Blockchain</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Renewable Energy')" data-tag="Renewable Energy">Renewable Energy</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Smart Grid')" data-tag="Smart Grid">Smart Grid</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Mental Health')" data-tag="Mental Health">Mental Health</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Nanotechnology')" data-tag="Nanotechnology">Nanotechnology</span>
+            
+                <span class="chip" onclick="toggleTagFilter('Drug Delivery')" data-tag="Drug Delivery">Drug Delivery</span>
+            </div>
+            
+            <!-- Papers Grid -->
+            <div class="papers-grid" id="papers-grid" style="display: grid;">
+                <div class="card paper-card featured">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dL117DkMmSDA-8S8jc5jExgveee81KNMWg&amp;s" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Comprehensive Evaluation of Advanced Water Filtration Techniques: Assessing Efficacy in Removing Hazardous Contaminants and Inhibiting Bacterial Proliferation</h3>
+                        <div class="paper-authors">C. Bhat, J. Lathia, A. Sajeev</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Translational Medical Science</span><span class="chip">Biomedical</span><span class="chip">Sustainability</span>
+                        </div>
+                        <div class="paper-abstract">Access to clean drinking water is a fundamental necessity, yet water contamination remains a
+pressing global concern. This study investigates the effectiveness of various filtration methods in
+removing harmful contaminants—primarily nitrates, nitrites, and sulfates—from water sources
+while assessing bacterial presence post-filtration. We designed an innovative, eco-friendly, and
+cost-efficient filtration system and compared its performance against conventional filtration
+methods, including reverse osmosis, activated carbon, and LifeStraw filters.
+Our results demonstrated that the newly designed filtration system effectively reduced nitrate,
+nitrite, and sulfate concentrations while minimizing bacterial presence. Contrary to prior
+assumptions, our study did not evaluate E. coli survival and reproduction but instead focused on
+culturing and quantifying bacteria already present in the water samples. The findings indicate
+that the eco-friendly filtration system outperforms traditional methods in improving water safety,
+making it a viable solution for communities with limited access to clean drinking water.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754623359618')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754623359618')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754623359618')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754623359618')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="https://miro.medium.com/v2/resize:fit:3840/1*6kvMnA4k0lZ2Im7pM5NTZQ.png" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">A Novel Multi-Omics Deep Learning Framework for Spatiotemporal Cerebral Cortex  Localization &amp; Expression</h3>
+                        <div class="paper-authors">G. Talluri, A. Rokkam</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Artificial Intelligence</span><span class="chip">Biomedical</span><span class="chip">Engineering</span>
+                        </div>
+                        <div class="paper-abstract">Accurately mapping and predicting amino acid localization and gene expression patterns in the
+dorsolateral prefrontal cortex (DLPFC) is important for presenting the molecular basis of
+neuronal development and function. Introducing SculptTM, a novel spatiotemporal multi-omics
+deep learning framework tailored to predict amino acid localization and gene expression patterns
+based on genomic and proteomic inputs such as gene sequences, age, and protein identities.
+SculptTM uses convolutional neural networks (CNNs) to extract spatial features and recurrent
+neural networks (RNNs) to model sequential and temporal dynamics, allowing for detailed
+localization and functional predictions of expression values within the DLPFC. By doing a meta
+analysis across multiple multi-omics datasets, SculptTM provides a new method for elucidating
+the complexities between gene expression, regional localization, and progressive neuronal
+heterogeneity. This framework not only advances our understanding of the DLPFC's molecular
+architecture but also offers tools for drug delivery and personalized medicine.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754621046703')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754621046703')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754621046703')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754621046703')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhyDCwtQhl6fPnUh9jglvZqCXfFsarmrXhQ&amp;s" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Quantum Computing: A Comprehensive Exploration</h3>
+                        <div class="paper-authors">A. Chinni</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Quantum Computing</span><span class="chip">Engineering</span><span class="chip">Artificial Intelligence</span>
+                        </div>
+                        <div class="paper-abstract">Quantum computing leverages the principles of quantum mechanics to pro-
+cess information in ways that surpass classical computing capabilities. This paper
+
+provides an in-depth yet accessible exploration of quantum computing, covering its
+
+foundational principles, operational mechanisms, transformative applications, chal-
+lenges, and current research trends. Written for a college and high school audience,
+
+it aims to demystify this complex field while highlighting its potential to reshape
+technology and society. Each major topic is given dedicated space to ensure a
+thorough understanding of quantum computings significance and future prospects.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754620718146')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754620718146')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754620718146')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754620718146')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="https://purebluesustainability.com/wp-content/uploads/2022/02/Environmental-Sustainability-Examples-Tips-to-Implement-Them.jpg" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">S.A.B.E.R. –Sustainable AI-automated Bioreactor  for Environment Remediation</h3>
+                        <div class="paper-authors">I. Ranjan, A. Vemana</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Environmental</span><span class="chip">Artificial Intelligence</span><span class="chip">Engineering</span><span class="chip">Renewable Energy</span><span class="chip">Sustainability</span>
+                        </div>
+                        <div class="paper-abstract">Carbon waste from sewage disposal presents an escalating environmental challenge, necessitating
+innovative and sustainable solutions. This project introduces a fully automated, high-efficiency
+algae bioreactor designed to convert carbon waste from sewage into valuable resources for isolated
+environments such as space habitats, bunkers, and factories. The system leverages an integrated
+sensor network that continuously monitors key parameters including pH, turbidity, and CO levels.
+
+These real-time measurements feed into a Random Forest-based AI model that dynamically reg-
+ulates three specialized pumps: one for clean water intake, one for nutrient-rich waste infusion,
+
+and one for removing nutrient-depleted algal water. Our approach involves three main phases.
+First, we engineered the bioreactor hardware to ensure robust, hands-free operation under variable
+conditions. Second, we implemented machine learning algorithms to optimize algae growth by
+fine-tuning the environmental parameters for normal solutions. Third, we implemented a sewage
+
+nutrient solution with the AI. Experimental results demonstrate that the system achieves consis-
+tently high oxygen production and stable algae growth. Waste-derived nutrients perform compa-
+rably to conventional nutrient sources, effectively reducing CO emissions and ammonia levels in
+
+controlled settings. This work validates the feasibility of transforming sewage-based carbon waste
+into essential resources while mitigating environmental degradation. Furthermore, the bioreactor's
+
+design and autonomous operation offer a relatively scalable solution that can be adapted for ex-
+treme and isolated environments. Future research will focus on enhancing system scalability, long-
+term operational efficiency, and integration with broader sustainability networks (such as specific
+
+ai-models for each sewage), ultimately contributing to innovative waste-to-resource strategies for
+both terrestrial and extraterrestrial applications.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754620624949')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754620624949')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754620624949')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754620624949')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="https://i0.wp.com/epthinktank.eu/wp-content/uploads/2018/07/icc-logo.png?fit=560%2C271&amp;ssl=1" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The Dangers of ICC Accession: A Comprehensive Analysis of Sovereignty Risks</h3>
+                        <div class="paper-authors">J. Lohani</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Politics</span><span class="chip">Law</span><span class="chip">International Relations</span>
+                        </div>
+                        <div class="paper-abstract">This section examines the sovereignty risks associated with accession to the International Criminal Court (ICC), a critical concern for states contemplating membership. Drawing on a robust evidence base from scholarly literature, legal analyses, historical case studies, and policy reports by esteemed authors such as David Bosco, Mahmood Mamdani, and Lee Casey, it argues that ICC accession may undermine national autonomy through jurisdictional overreach, constitutional conflicts, and constraints on emerging security domains like cyber warfare and autonomous weapons. Through a detailed thematic analysis, enriched with historical context, theoretical frameworks from scholars like Kenneth Waltz and Martha Finnemore, and empirical evidence from reputable sources like Human Rights Watch, this study highlights the complexities of ICC membership for states
+with robust legal systems or global military presence. It advocates for cautious consideration and potential reforms to mitigate these risks, offering actionable insights for policymakers and scholars navigating the balance between global justice and national sovereignty.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754620352082')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754620352082')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754620352082')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754620352082')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="https://www.simplypsychology.org/wp-content/uploads/Operant-Conditioning-Reinforcement-1.jpeg" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Positive vs Negative Reinforcement</h3>
+                        <div class="paper-authors">S. Muthukumar, A. Kaza, A. Nguyen</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Psychology</span><span class="chip">Biomedical</span><span class="chip">Health</span>
+                        </div>
+                        <div class="paper-abstract">There are many different types of behavior modification. Two prevalent methods are
+positive and negative reinforcement. Positive reinforcement boosts confidence and morale
+among employees. However, praise can make employees overconfident, thus adversely affecting
+their performance. Managers often fail to use positive reinforcement when not in a good mood or
+when employees are competent and thus perform their duties well. Negative reinforcement can
+be an effective way to strengthen the desired behavior. However, it is most effective when
+reinforcers are presented immediately following a behavior. The response is likely to be weaker
+when a long period elapses between the behavior and the reinforcer. This study aims to further
+delve into the short-term and long-term effects of each type of method on one's mental and
+physical health.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754620012486')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754620012486')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754620012486')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754620012486')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card paper-card featured">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUSExMWFhUXGB4bGBgYGSIdIBkgHR8aHyAgHx8hHSogHx0mHx0bJzEhJSkrLi4uGh8zODMtNygtLisBCgoKDg0OGhAQGy0lICIrLS8uLy0tLSs3MC0wLy8tLTEtLystLSstLjUtLS0tLS0tLSstLS0tNS0tLS0tLS0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAAFBgMEAAECB//EAEoQAAEDAgQDBgIGBQkHBAMAAAECAxEAIQQFEjEGQVETImFxgZEyoQcUI0Kx0RVSYsHwM1NygpKistLhFiQ0Q1Rz8SVjo+KDhML/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIEAwUG/8QALhEAAgIBAgQFAwQDAQAAAAAAAAECEQMSIQQTMWEyQVFxgRQikQWhsdEzQuEV/9oADAMBAAIRAxEAPwD0pGZOEag5KTcEREedRjiAA3e87W/CvLkcQrS0+22laUdxSLWSkglUE8yRsfGquV4ht1oKU8pt1Su6ntdIHSU8wec0B7GjHuESFyOtvyrheYufrn2H5Ul8FcRNHDrSt0DQq5XCQJ5C8EWm3Wi2MzhoISudSVWSUxy33IoBjbxrh++fl+VY7jXAY1n5flQnKcahwd1W24Igj06eItU2Lx7aJUtaUx1NAXFZi4Pvn2FUsTxN2akJWsyoSEgDaYmdooUzxNhVq0FwJNz3ucb3Ej0oLmTKswf7JolHZplTsd03BCJ21ExPQT1oB/XnGkSXB7fx4VXxmfpSUjtoKpgADlv7RXleMxT5xBU4haG0EBSlghMoiO8fi8hY3oNic/cWvtwFK081QLT8IAHdHl40B7QriASB2ypJiIHL0obj+OWmX1Ydbq9SANSoEXE9OQpV4My7t+zx61lUTDcGAoGAZJvHKjWdcLsYzUpSdDp2cTaTEDUOY28bUASHH+HKToe1nkBAJPhMTVvBcWpcJGvSoXhRG179BtXgOcYdbDy2VqBU0siwtPUDoavZDh8SpCsRp1NFcEpGpWq0DTyBMX2oD3tjPe0+BwGLGIN/apzjXQPjJPp+VeXZLl2Ly5/WsBTDuntFg2bUU31TsAq2rwFPrOJC060GU8iQR8iJigCP6Sc5qPy/L+IrZzNY3WfSPyoM/iY5Qa7ubkT0oA19eUfvqHt+VedYl4rddcKiorWTPhsn+6BTFmgWWXEoPfUhQRO0kGPnSVw3ji813xpcbUUOJH3VJsaz8RdI7YasKo351aZH8fxaoEJ8aoZtxA3hu7BWsj4RaPMxafKsqNkMcsktMFbGFIqZtukZjju/eZGnnpVf2Ig/KnlhwKSFJ2IkeRvVk0yc/DZcNa1VnTrSyO4oJPimZ+YqJLD8/wAq3/YP+arKHAdiCfek3hVWPOMV23a6O92gXOjnGmbbxGnlUsrixa4ybklSvfz9hrU1iOTiJ/oef7XlWFrEzZxqPFB+V6vlQAmYHU2itoVNwZ8QZq2k4WyilrE2lxvxGgx+M1L2L/8AOo/sW/xT0qwh0HZQPkRaljj5eKCG/q/aaZOstzqm2mdN43+VQ9lZ1w4+ZkUG0r82Hi09P8qnw7n+prpphwTLxP8AVSP3VDkAdGHa7ae0096d/CfGIn1q+XUgwSAehIFTRSSqTit69DaEnqT7VkV2BXDjqQe8oA+JA/GrFFbNgV0kVtMbikrC8WvnH/ViEdn2qm9iDAJEzO/pUNpdTth4eebVp/1VsdCK5I8fnUhrmTyn0qTgeQYDFLbb7NTa0h6AVujukXNrwBF4iflQ/g5Lj2I7BnvKUDEgQkReSQYTttevTsxydp5lKcUpLahBb0qu105yuY73WkjNsP8AVnu2w6gFTCi33dyLi1geYNazOUXHRhkONohSkglwqVYqk91I0wb2F+Rqxiy5gsS0gyYYQoyme8qVL0g+NrcgKpYJkJxzbrjQKEOJ7VvleSFAefLrTH9L+aIX9XS33loUVFyLCQRpnrzjwoCs5xN2CpQjQtyxBEBNgSoCTuCLWEgc6xfEq1Odi6oOMOiDAhSVWuCDa0kWvFXOF8kYxWAV2qFdtBJcIuJnTp56d563pKCsQ+4lOhxam1QowT8Np2taw8IoBtThG8MlbKSkuEAlRgqcTcG/gYMcpo7gcwGDyqGj9t0WJhTiidRA3FecYlTrDiQ4FJU2uRq30uC3yBovh86xDSlNrH2TgJaUqCLiwmfhJ60BPxJneJXhvq7yyrUQuQjTyMDyv+FB0IRpGlSwggTcWN7VXdxhWyXAvUpDwASbhKdxIm9xEedVkNqWSQCCTKgiYknkOVAevfRq0U4BNxd1wgAzCSqBPttRnM8YWWHnE/GhtSk+YB/fXnv0fY13DuuoWkhi2ofqqIEEeMb008W49KcM/qkAoInfUD0ItcfjQHjmHaK0KUoOKUe8VxMSdyecmnX6HMQpL2JZOxQlZ5QUmB7zSdiX1MiEqUW1fAZsQeR5eMHwph+jfGMtOOuvOaSrSlICZUbySLbCAP61AesY7CoeQWnUhSF/EL8qCcM4tTSl4V1ZK21QCf1N0R/VNz/4rWO41ZT8KTp5qVyv70pu41zMcbOESQpIALhEIQlM3V43tNzagPSVNDVqUbDl1qfXIsIrSG0NoCVr1lCRqUdyesVCnEIUEEH45j0oCHHKhtR06vnHjS1mTTKMyxPZSO0Q0tQAsFFImPHYnzNGOMGkhgpWrSCRyEnmB3rDzpbb0DGqAkKUykqBPMEgx4RpPqK5ZvAzpi8QYbANee4ZsYjGw5MLcM+Qm3sIr0ZAikHiLK3cM+XUAhBVrSsfdMzB6QetorE0e3+nTipSi3Ta2Y9KyZhSdCmUFI2hIHsRBpX4/wAYsOIZCiEaASkWmSRf22qujjh8gJShsrNgQCSfJM71zx8o9s2pY0kspkHrKpA8ppJ2tjtwfDTxcRHm151vYb4S4VdZdbxCnExpJ0pm4UnmbdZ9KEcCuH68Lm4XPjYm/rXoeXn7Nv8AoJ/AV51wPbHgcxrkcxY1LVNURgzyzQzvI7en+yPNVO4vHKZK/wDmqQiSdKQCRt6VRzDAu4Z5eG7TeArSSAoGCJHrsaJZfbNo5/WF29VH8KzjIxmKp5luJ52SPxB9qo1s33PRx5dOSGNVp0XW3Uq5zlbuAeQA4NcakqRIi5EfL1o99Ib5W1hFm2pJUR4lLZ/eag+lAw+0TYdmYPXvH8xXXHf/AA2BPLs4nx0N/l8qlqtSRwx5OY+HyTe71W/hlzMsycbypgpWQpcIKucd7Y8tgKXMHw247hXMWFphOolJmTpub9aNZ4D+iMMbwFAz567z7Vd4bE5Q+AJlLsRz7tTVvf0KRzPDhcoNJvJT6dLN/Rnj3FpdaUolKAkom+mZEDwsLfnSxispYSVdrj0Kc56W1uAnxXzNEOAm1LRjENnvqZhMHmdUUCy/EtsLUH8P2hFtC1KQUny/MVH+qs7qFcRleOVPbZad9u4f+jjHrTiex1EtqSolPIEXkdDv71Bgj/6t/wDsq/xKqT6PMOpWM7RKD2aQqSNhIIAnrfao8GIzeOf1lVue5I+VQr0r3GRw5+Wq/wAe/uep6q2ketbSmuw3/EVpPlReyfKm2SCAFLX8Mi8c1XvA60u8eIaD6ShY1LSQtIvEbE/h7VvPuMJUpvBmXFWLxEgfsoG0eP40l43Ulxwm6tXmbk7nrWszlhOMWltT8kOFTaZHIaXD8yKr5djk4hJYdAUtaoAvJk8jy3+VCca5dIuBAm9vv/O+9NP0W5D2rpxCzpQ3KUmblw8hPMC/tQHpLraex0tKj7NSE6NjFvcH8TQrgDG9rhQ6sfbalJdNrlMCfwtQfJNaF4tpxZ+rdsSVzdB1X8iv5XpiyRDaA4lojQpZWI/b7x5eNAJ/0sK1KbcCRtoUrqbqSPQar+NJLj2tsEKuLEdOnptXqnE2VfWMPi2UXUkJdR/STJj1AI9a8cbJgqFxa/uf3UBdbxK1r+0KlkDugnqef8c6b8sebabTe6gdrTF1E+EWB8TSO0qVFQsOY8OceNHGsSWB2i4U64AEN/qIGwvtJj2FAM+JxyuzH66iIjkVXjxMfurjM2y4wGipS9I0kze5JAPTfunwvVLALddxIacb0BAJkSQQRO/3lE8x0rMyzZLLpmFCI0wZKZ2I87g8jQFJjEJS3oSlOhepK5E6FDcibjr70WyxpCW20KAlG6iNjEap6RF9qB/pINvayApl3vW/WFpHjYSKkz/EpaAShZW1qje+lSQpIP8AVJHpQFXFFTuJDKf+YsAHw5kegPrXo2BxQYbShgJbaEhUbm06lHcqMb+VJ3BeVLfcdxROmDpRA5m5g+At60cbwDg1SbDkNj6296AvHM9aXHFKUoz3Z6Dn09qrvY55SEoaURIA7h+Gd77zArWKwRXdLWlRKYBiOpnxNvc0VynKSkBxxTIUs6gAYNtiL+QiPWgFzNziEpUUqWUJSHlCdUICglMq31zKrWvtatZAsOvBxQl2Fqm8JQvs9Kb3kQqTT45ht5dCUwdR02I8bx7zS4w+04+tTY09mkNwD4lU+ZmfaueV/Yy+PxBVpVSpFRtmanQY8axo1M6Zw6RcJAPUJj91ThI5gHz/ANaTcw4wdacWn6v3UqKQpWoTFt4i8TV/h7iVx9whxkNthBUXDMCI5m0VKkro0Pg8qhzNq90NIrpKBMwJ8v30MwvEOGccDTboUs7CDfnvEH3pdyDHYhDOMdU+l0oTKe/qAPeuByT0Hh4VbUUjws2nezVbNPe3Q76BMwJ6xetqQJkgT40pcO8Ytqb/AN6dSlzUQO6biBBMCBzvampzGNhHalaezidcjTHnRSTWxXNw2TFLTJf99iVTYIuJ8xWlJBEESOn/AJoXgOJcK6sNtvAq5AgpnyKgAT4VNmmfYfDkJdcCVH7sFRjxABj1qbXWyv0+XVo0u/SmENAiDt05ViEgWAt0qDLMwafT2jSwtMx5c4IIkG9VeJc4GEZ7XSFKkJSmYknxjkATS1VkRxTlPlpb9KCSGwNgB5WrTjSVfEgHzAP7qX+EeKvra1tqbCFpTqEGZEwdxykc+dGM1zrD4ezziUk3A3MeQk0Uk1ZfJw2WGTluO/ot/wCC6hAi23QCukoG8CesUAzniltrDJxDOl5JWEWOmLE3tINto50SyjNm8Q2laVI1FIUpAWCpE8jFxfyqVJXRWXD5Iw1tbXXyXq2J61k1xp/i1ScDwfCo0LQDYBd/NMW/D3qvmGYLU6RFylBAHVSQonxuqm7OMG2pgPBYCtAcRIFxG0dQOdthSR2BW8LGF9mgGOZCU1qOBLmbR0sGLlJ1CeYJv5D94r0PhB9LeFSpCSVpGltGn7yrlXjJ3V0250oY3IHGkosVEOlBTNhdYMTYDujej36ffwDYZ+rlTmyXCZQEDkI5+Jj1igAOd5m/hMSvs1aXFgFy5UCTe+ob78rU3fR66VMLWsqWsvQoySRKU/x5UqcTMO4x7DvaEoDzQCY5QSL33pt4Nc+rYNxTgIITJEXkSD57C9ANOUYQIU8QpRBsdZ8Lx4XrwnO8uLLugpgGSnwExbwr1ZPFrLbaQ6FhS2ydae8CSDYwLKtzAFI+ZYdOLeabaBJLelNoO5uRJ2gSdqADZXpT3jcjvbSBGxP5UbydBxDkrCRIKlrKRISLJEm4Pj0FFMLwOyloIfxKw6TqKUAaJGwMiTHmKsv8JqHeZe7VMyUqGlR67G4jlagK7+OWhglohHZ6YWs/F+YIoCM2ZxLurENtpJQRrEp7wumZJgG41biRQziDEqU6oE2SbJ2i16oaoIPS49KAc8lz3ArHYvYBpCTsRupUfrWg+PlVTH5K1r0takIPxgq1BAAsZ3JHMXsTelvS4uXCNUHc/lRnDOkICsOgahBIIKjaygqT8EXFAO2RMlrDYdorCQPiCRMkmSbdd5qypwqcUkTpE6Sm5/ia44GzJ15ha3gkJSoBspTpkd4HzuLUw4dQWLGJv/5oAI+XQlIQ0pZ7RMmAIGkyfIHTaljPs3xCMU4OzSUI+FKwJ0xuCDzMm3Sn956Ao/qiSAZpazbJvrOIae7TQ6hKSElMpiT1kHy8aAvYd58NpKmjK03AExI2jp51XyprS++A3pB7MiBAuhMiKafrMzvINz+V7UAdChjsTJJSpLK0+EthMe6T71yzeE6YvEEUCKmR4VE3Vhu1ZUaWLf0gj/d0f90f4V11jlf+kD/to/xJo7mWVtYhvQ4FQDqsYMifzrteVNKw/wBWMlsJCd7iIi/W1NJrhxMY44Raf2yv4AXAuUMllGIKJdlXeJNrkbTG3hQHhj/h8f8A9of/AN16DlWXoYbDTc6RMSZNySf31Xyvh1hkOBCSUuiFpUZBF7R0uaaOh0+ujeVu3qaa+HYg4DDYU4F1bhAfCjo73e+7A0zcG/L8K1iHHP0a0DOjt1geQSCP72v2pwPAeEKpHaR+qF2/DV86NuZWypn6uWx2UAaekfMGee+9Ry2aJ/qeNSTim/u1b+XZHl7OXKd7NSThmRYAhwAk2gkalK1UT4sy9QxjjqVsubFSFqSFDugQUqIm0ER1FM2G4IwiFhYDhgyApdreQBPvU2acI4bEOF1etKj8RSqAYEXBB5dOlNDoh/qMOYmm6provP53/JX+jrGIW04EtBspWCrTOlWoWIkkiydhb3oL9JWN1PtsAEhCdRAO5Vy8wkD3p3yfKmsMjQ0mATJJMknqTUH+zzP1r653u03jV3Z06ZiN49Ks4txozY+LxQ4mWZRdb0u/c8+ybNgMxQ8G+yStYSUTsFAJ3gWm+1TpDLmZvDGmE61galEDumEgnkNI8OVPGd8OsYpSFu6tSBEpVFpmDb8L1znfC+GxKtbiVBfNSDBPnuD5xMVXlv8Ac0f+jibT0tXHS68vSrf5sW+L2MMjAhOF0lH1gE6Vahq0qm8nlHOinAOAw6EBxpzU6ttPaJ1g6eZGkXF+vSiLPC+HGHOG0qLZVqMm+q155GOntUuQcNs4TWpvWVKEEqMmByFhb8qsoPVZnnxcHw7xJy637++/9hbTWifL3/0rc10JroeaeWYrAqaxOGy9TgWgIOqE6ZnUNxf4ec1Ry3BRjexJkMrgCOZWnSfa/rRfOMc2M1Upw6SEBKSTYk+PI+dd57ljiMUjGNplCkErItdpJKefO1/2R1rUZwTxHm4dxDjRJT2bizqG3xGNQ52gVXdz9JT2SSb3Us/gPxpQQ8txRA++SSBz3POi2bYZQab+xS2nRrBC5MExBn70jl1oBgwDiVsp0x9ktSQRz1hKp8CTPreuMnUothOJeLbKluFeo/EExvz0AqHzohwDkbvYLU42U9qpJbC7SEAyY3uFRV3ibIQ6GmFIU3Cj9ulOpB1WIVBlMgCSYuKAV0Zak4TEFtfaQtB1hJSg98ghM7wDM+IF62xmwYb1Nph1bfZoV0GoyfOb+MCvRn8i0YJWHZjVp7pUIBUCIJHmK8vzTDaGlKgJKXACgp7zZNlDppKrg33oAy/kocYUtx90uJG0GI5XFxe9WuG0NNtCdRWDpWtKjOrcHyI5wYPLnS6HFhlpScZ9pCi4jfQkGEkjkLj3G1VxjoUFtkwogKVtKuseXyoCHjNhKMY5pVqCwlcne4vPjafWo8jwCVqDz38gk98kxP7IjmajxxD2IKlkhJSdMb91B0i3Mqj3reXqBcQ2/Zpu60KttuCLEk0AXew2GP2+HbV2YJOkuJVHSUfEE+tCuHsw7FxS1GNaVInoTF/K8etEuKMXh3gHGUttOpAkIBTrSRaxja142oCg60E6YgG4Fj4+dqAf80xSW8E020Ce0cUEjYEIhFvAmTfrWso4gAIw+rSAO8sdegPIcp6Uv47MFDL8HA70vDXzs5ceo01a4VW+lKks4ZtxSklSi7cLjkB09RQDa+vSmCUgKIAJMhXgCCCD53qZzMNJZKBKVJVKpsnTG59flSXma38KErcbDbbk6mNYWB4gGSkHpeKujELVhJbJRhiSFEmdGqAdRmYnryvyoBuwanFa1tJQoKVPeJ5xt0FBk4g/pBaVSFllGpO6QUzseYgijvDDOpB0GW4SAsfCowJKTzFUGnwvEOlCe6klBUeZSeXgJj0Fcs3hOmPxBRpPOraBVRtfKrbS6yo0M7SmpQa4JrpJqxBKlVdgVEkVIBUlQfmPEeFYVpccGrmkAqI84FqsZjnLLLYdcWAhUaTE6udgLnlSPx9krTQ7dJVrddOoE2Fptbr1qLjQDssEZk9kO5E8kX97RVHNqz1sXBYcixNN/dd/CHLK+JcNiFaEL7/JKkxMdPSoTxnggf5U/wBhf+WkzKFg5i0XWhh7j7NKCkTEJEHbUedEOPMHhcOhLbTKUuLMyJkJHrzNvQ1Gt02X+iw86OOn9yT2a29d63HAcSYUtdv2w0SRJBmRBICY1TccuYqxlObNYhJW0rUAYMgi/kR0pXXwk2MEjtNQcaQtZAIAKlAEg25QkW6Vn0XfyL39MfhVlJ2kzPPh8HJnPG3cXW9dGx2TWE1laFXPOOhXdRiu0qqSDCfWtVsmsmhB5Fx0zOMUlJhRSCieZvIqHKs0eU0/hW5AW2oJEiEkDvb7Dfaiv0h5OvT206gCBOyhO08onnNXuHmEtNs9olvtHP5RaTIKROnvCxvvFq1HA8yuh5OpIBQQNKh0AgqHzpm4czJppZU+0halr1pLioSmPvC0Ab7dPWrHFOAbWkkg9qTqSRMQo94q5aRv4TFAc3ytz6thlpbUdKXEuFIkCHFFJNuYVv4UA9NY97MFKewjgb7IhOmbXm5BEmRtsBfepv0bmkf8Q3MXBG+8Xix8YOwpL4Rzg4F13UDC2wCPHUCk+xPvR5XHqpgpgciOc9f450AVxmW5qWUhWIaC06UhKZlUkAlS7XA8OVCMzypTeHcbcPa4hwd4kmBChp53VCZmOgojkvFZxDhSYToBUZ5gf6n51UOZpxLzihski/vPzoDz9Dy0KIkhXwqHNXUH5UzcMcPF9GsgQpRT/RBG/XeIqHFZDrfcKTCZm/Of9etO2StowrQSVDWoyobk+g8OVAUsLwalrENvNOnuk6g4AZkESkja/WaD/SNgwhbDqk2MpXpETzEm4Jsb0yYrG/apBJF7J86DcdqU5g0LSZSHNv1pBg0AssY3tihJ1doruK7qY0QEpg2jSOtO77OEDCMIA2lE9zXcqV+sO8FEk86Tsgy9hs9o5jGkL5IUlRiL7gwZ6fOj7ycA7qL+I7RRgJLKFjsxAsN+YkefOgLuP4RQvBFhjvFKi42DbST8QBJ2PnzpOZDzWjtGlo0qIhZISSIlPrvvR1SGt/0m+gAzPYqF9pJsCfSsxvYvoDS80WsJJUZYO+178r38aAVsyeU68tRCUECdIVKUxyHgTyp44XyNwYR9lyAH0fCAQbjcnkQLxHvVLJEYRgENuocUVEuOuIgACISAfMnxo4OJHHpaZW0lISJeUIAMbADczbpQFzP8Tiw03h8vaSGymO0kAoHRKSRFvveNA8lQoYvE7gK0rLZ+4pQuPKQaKhT5Rpdcw7gO6g6ptXp3d/WhGCwTjWKQ6pSVpcb7PVrBMoumeeopO8cvGueVXFl8b+5DOg1YaVVQLqwHPWsaNTLQVNdINQg1OhVxVipOg1IDXCWxUiWhTUGhf4wyZzFNIQ2UgpXq70gRBHIG9VOIOFFvIYLbiUutNpReQFRGxFwQZvFN2gVvSKh6Wd4cTlxqKi+l189RKyvhXEKxCcRi3QooIICSSTpuJMCADfarOM4aW7jxiFrSpoaSE31DSBAiIjVffrRzNM1bZUhBSVLXMAWgAEySTA2MXq1luKbebDiJIPXceB/jpVtCroS+NzOV35V0XTsaxbOttaNtSVJnpII/fQjgrJXMK2tLhSSpUjSSRAAF5Api7MVsIFTtdnFZZKDgns6v4IzWqm01pSRUnI4SawGtTW6A6isE1qa3bzqQLHFjyUMgFJWStI0BUcwZPhNvU0J/QuIbYUfq+HagSG0KJBnnYSIB/wBKWcBiHFvpQQ4AVgrnvDrII3FNfEXF6mfsihRVFzplJG287eFajOA8FnSUOttY9hvTshaU2TO1hcietb4q4ldd7ROEWAyEzITcwdJAtYSN6UH8UFLLp1FYB0j7u0A3No6AXsaYeAGNQdKxIUAL84vFAJRWQTJvzJpz4P4cRiUF3EKV2eyEpMatMSZ3gTHKlbOUjtnI2kj2pmGbYrDYJhPYBKFpVocJuQSq5HImZHkDQEjDP1TGrKf5NKTEyToJEx12Ik2ofg8QgYlfZOFQVfUU6Njtp52N/KnjhPCN4tr6y+33yCgKkglIEG217nnQPK+DVNYl3tO80EHsVAWJXIv0UkfjQECn1qWANKZsq8Wos1i8M2FFvVq5r/W8RPLwqpguGnXO+4tLccjdXty96o4nJHFlSG3G3eQ0nTJ6XtPrQETOIU66padSiT2aEn9rcz0EmPOmDiLDzgygHvNqSSU3CSDtPUUt4DB4lpYQUPMuSdJCO6Z3k/vE+VNeGWXmXGVrSXAlV0XBj0jWCKAAuFLOUkOaQ4+Tpkd6NQAjnEJN/GhWV5ji8Hh1aWXAhxQUVlJja0EWrvJWlY/EoSskNpEAj7oSNh0gD3M00Y7HIy9zR2Y7Nezibn+ugnSrz8KAXMXm+JxGHLhUYbXdJ2giNR6pBIEdTWNcSISR2KCgEaVEmJJEFQCAJv8ArGi3Gr6FYQKa0yogHRaW4kyg3A1EDmL0v5NlQTDjvwlKVAdNjcR0H4UBe4p7EYNrs0pK3FStzSQqRcpJIuZi48aeeGXZwGGWoDvNCbb/AMRSj9ILYS2wjnKlnonUlJ0x60TyvPUNYXDsm+hkT5x/rQBTM8I0sd5IMXpex3DrQYW4yNDzX2qVSTOmNQP7RAEeQrbnFIVA0D3v+FbezlK29CUlK1FPOLawT/dmofQldRiZO0mrKKpsKNW0V56NrLCFVZYNxVVBrMdiS2y4sbpQoj0Bqy32KvYMMOJVdKgRtYzUwrx1jLe6y4ruhxRtqudO5E9SCPM2Bo9j8hCgogQ4r4QmwCyDImASJBUAbwfhEX0PBGL6nLW35HokjrS7n3EwaUpprSVpAK1rMIbnaeqr/DI8+VeUFJCilR2MH0P407ZZhmmC3oKngqVNjTICVDSS53esju/CSZ3v0lw6hu3ZVZNRTTnynHdS8WskJuEoCU87Cw5mYI5eVXsi4icRKUPpek/A6CkqVAHdXG9tiDPSt5SwEu9ojD9kkak6w9HdCNN0ySSpXgANJM8q4wrDaEuqODU33Yme1UdQCSEi41gg33kyYk1d6XtX8FVY85Rm7eISSmUqTZaFRqQTe/KDyIsavdoOo968h4kDBZbeQ6pTirJ1CFKSkkHVMbW7w3UVedVsgwbzxIS2lbYPf7QEpHkR3wo8gkybVX6dVqsa96PaEuDkR71wp9P6yZO1xfy60iO8J4coQlDSoUnUpySCm+1xPIxNL+X5Ollxgqclz6yEQBKYStvnE6jqqixxd7/sWbaPVwK2K1NdAVxOhsDxrY861XQVUkC7lGBThkJabCtAk3JP43pc4tYKXVJMaH0gjqlQ+IDwNvnR8EkzNrgn+DQPNGZxKCbpCBonzM7+lajOKmc4MN9wfzc/M/nVz6PsUpJcTCiI+KLAxG/zqvxwQFtquLKTbzBv7VY4Y4jThiph1JLRhRUNxqA9waAXc9yxxt1Z0LKZJ1FJg+vOrmB4lUQG8QS61ECd2+VjzHhXpmEzrCuAhtXadQNx5gmR60FzXJsJiHQOyKVAgnSAJHMWP40AW4SQEshtKtSFyps787gHbpbxNCs04j1OKbQrSlClCeug95UfqgjSPE0BxbeKy4q7FSjh1KkHm2TP9mRbULGetB3Cw4oW7FU7lw6SSoEqKiDptq9xQDfh85ViH0YU91CgStafv7DQk+ZgqHQxXPFHDOEZbHZJLZMzpXBttAvcdaW81bbQwFtYhsqbMBCHNZgnfVpG1rUEcx6nCNalGBa5oBvZzt/DLS0+6p1pxKVNKI3BOyj5Ski8GDtV/G5wlpSHMPodbVYjZaTzBH62+4qnwxnGGcaawuLa1BEpB3B1Hu+UTvbah+T5N/vRaSoyFakqBN0aoJ9ufWgIcoxCsMpDqYCFLUCDy1d2d+REetHuLoXhotuIn7veEweY8NxsaX8yyt0ufV76UEN2Jg6YOqPHVItRTiJ1oYfR2sLEAAg3KfTfxoBTxr/wFBKQiQCCecbnxg0wYxw/V8OoKnUEoWk30rBB/vAT6Gla5kctyKe8h4eCkp1O911PbFMRHZSoR5gkUBHxa4hJV2y+8qHEhKbdNA6T42oCxmSFb2ixqxxm8FrnVqKUISSOoA/OqvCWTjFPFJJCEDUsjczYJHiTQEb+MQSCJI6wf46UcyzCIdwq3ElOoPNAKH9aU38IJ9K9Cay5ptPYtoAAHQfPxoVmOCbaUhltCUC7qgkbqVAE+MA+kVTI6i2WgrkbYq23VRBqw2usCNrLqBUOc/8ADP3j7Jfp3TXSDUeb/wDDP/8AaX/hNdY9UUl0Aec5e26p5A1oOGbAaJI0q0gEgJgGfGf3VfyHEKdZbWAUk2WRJiJEpuQixvYHzmqD6Fdgzju6pRSGXyRugkAKPiBYn8qh4aT9m92SXCkLISoBREciUi5MAbXM1rkrh7HBdTXEHCwOIQltSErcJK9UgTdRItbyiDVjK2+zC8OgqcRMSoaQCfiI/ZkWABNyTPK4vLsKHQ4XVtlBi7ibQP1VDWJmdJreJxbCkthhyQmJWYkzrMTvM30xf2qHOTikEknZLglNlJCsVq3UfsyYgyTJMm9R41xKVakvodUBZB7hO2xkgKM+G+9DMnL2psL1idUBQBTtyIune/WBVlhTKNCQtpR0jcokQkJIJ/WMJPX51GmmTewPRloxRBxCVytWlt1C5A5JSpKrQTJBTElXKRU3DrOIaQ40ixCljuklRN06gJjSgifhM3q5kL6SAwtMqT2agsK0/cRpAM90hQ3NiTeJEMeRuNtnsUBzUe8UrABSnkTYSDfaefnVp5HTiVjFdSJnMUIQtTpKjpILhG4TNiAO7FzEfeE3tS8tKU9hqTpW9i0vIRzSklIk9JiY8fCjPEpV9cwqLhpwwuDAUQRZXUbUNz52ca0kIuHkKUsjkVpCfTl51SP8lmO4rCSaysrkWMmt+1brJFCAD3dibXN/elfiHOGQ6yUuJXGoEJFrgWmY9qsoDriSpawBEEmADIEIV3t/A0JwfAxxLpUA6whJEkhI8SEC5PQGY53rUcAJj8IrFJSlJBIcUVqMwAeZj2Apj4h4VaAQGXEB2AXC6T3hAAPgB0pizTG4bLWYSE+CRBUpXXz8aS8VxQp1SHC4ltS1ABsJ1aWwLKKjz1X09AKAHOcI4mO6WyD0JTbfYiifCWVYnDOF1YSlOmFJJBKhv3Y2vHOpsG62VaQ488tX8o6pRCfIDamHLkQ+E6ZSE2E2B3/Aj2oAaxxRhnRBKkk2KVo/GJ/g0t8VcOFsF9mS1uUzOmeY6pPhtXo2b4dhS5IT2un4+g6E7ny/CgebY93Ct9oWC4ki51b9CRFhQHlSlbwN+lcJ8q7cclSlQE6iTA2EnYeArlKN6AnwywlQJt5U55Xm6Wn2VmN9JJ5BRiTz3iklzlblvTFknD68U0VdqgD7qRClH+kARpFANHFzKvrOtAIUWwFQYQsSdJHObmk7O8EtCWi59/UR1tp+V969IZU4Ggl57DlzRCVKSE6Y2nUq9LmfcNh5RcczFpSwnuzpSlIH3YBkE9Rz3oBQaZTqBiwE+VHMrzSGlyVEiyADaSgpuY/Z9qoZogNJ0pvI3jc1VyfUolCRJVpg7RB/ImgNZms6ADuSSTud4/dRvgHHhpD50yolIBF9pOkDmqb+lVM7wWhxLIv3Qffl7kn1ovhcjLOGcQVd9SwpKh92Nj+NAOTuO7sRebmd7eFLrbroxjwcUZdQl0dNJJAA8oiiOQAP4ZGkgqCL/wBJJvQjD41L2JWqUqLTaGgU7EAqUfWVEelcs3gZ0xeJB1s1OgVSS5VphzrWJGssorWOchl2wVDa7HY907+FYKhzO7Dw/wDaX/hNdI9UUl0Ka2+xyp8LSElUpSkcydIBBkzO80c4Sy5TOGLdkrJknfvFINx0TIH9Wg+ZtuOvMdoIwrDSHVqg6VmNhyJJAAHietGcuzEs4MPP91xZWsIUYMqUpQT6AjyArTK9NerOC6gLEZA2UjEiQtwlDiSZGoKhRBO0lKt7X5VW4eywpGICNMtOpUAQDYpIidhfn51eXjXEZPrcQCtW1tgtZIWfefUVBkWboVrcSmDADiSIBT11CwCbiTz8zVvvp/gKrLGQYhT/AG7bjaUBtUaIgzB6DwP8GreIwIUQW1aTpgFAFtuo2mPKOUV1h325WudIcSknVAmAoDwJuLk3Ca0l3UpJCrGwiQi25mO9z25cxXJve0XXTcFYNgJffWfh0pT0nuJKpFxFxP8ASq21wt2ZbWt1XbKWA2U27KxUfEwARG3hQnPMaVks4YKWo/EQJNzfbmevK/gAQzTHONYRtt93TiUqDiBMmEmwUfKbnwF66/d+Smwf4qw4U0m0lKgUnmCLyPY7bmKEZjiQ79WdFicQht0AfeQqRPQcx5ipXcc7i2+4mClsLKOZVBtvzPwz0JoZl7TaVFTbieyddZ0tGdaHA4kkKHKBqE+Vc4rbfyLMfBWwKiCq6BqhJ2VVzqrmsmgACsPg3E9pqU6J/wCWCoEjppFz1qpmfEDpZWvDsqbbQPjcSRYcko3n2FJ3F2GWp9Si4pqwCUwdOm90lO17x1mryG3cWzp7d2WkhCu73ndzIBMg8hJm01qM5V4SyL6yXMwxavsUzBWfjItJ/ZG3nQDPMUy44FstFoJTzjvSbGPL8KYcyweOfCMOprssO3p0tAgCBsTJlSze8VUzbLcW4tKiwD3dKUpv3R+RO1AD8tzEoASQCTzPKetMWUZsuUhtXavSYbSn4hEETsLHc9KUMXhnkfyjLiY6oI+cU48G4BKsEpaUS685pQsQCkJUBAIvyJ8dqAvqyB9LSnUjWuDradVJnncd09QPnSY1jSuEAaRMqAUrlyEkhMDwpl424qKVllhRndxV94iB02mgeUBLytClNspXexlS1Da82G5jnQAjOOHnmUB1YSELMIhUkzcGOkc96FFXKn3MeC4ACX1TH3hI9htVXCcFq1ArdEXkBFyPWgF/L8pcxCm20JJKjpKoJCfExsPHwq3hOFsUXShKChSCoBwkgSLWVvB6inzBYBLDQaTISAfAqkyZI60TbdlATMSPiESDJ8xNAA8r4aSWUpxSQp0EyreQDaFQCqB1oVm/CmlSXWUqKZhSDNz4Hp1MU1t4JSZIdd6k6gT8010tLxHdxHKDqbB99qA8szF8wGwmAlRm8k8onwq0nCHRGhaCRZcEAEd6yhT0/wAJpc5oTIvCAJn1n0Fc4PhpbOvRpeSpMFtxa0oHjAME0B5u7j3lrDqySbXPO0Uw4LihJZSy4hRIBBUm09J8q1j8rKVEFOhQN09J6H8DQ5/DAKlHwyd7nw6TaaAo4TMHmkKS26pAWIWlJFx7Wta1H+DWYQswIOkdOWrb+tHpS87hTvtR/hXGntHG3LLMKAGxBSnTHgU6a5ZvAdcPiGluruHVaqYJq00qKxI1MvAVzixLTo/9tf8AhVXLb02rWIX9m5P82v8Awqq8eqKy6CjlebuKxGGSpUISpICQYSADBMC0xRni/KHsRiSnWEtNNpCVKNpInzJN5P7PhU+D4bCWuXa6dSnF/C1FxoGnvEWBPmKI49TriAn6uS5pKUugJXYDuntCmOZmAmDtW5zWq4mVRdblLJw5h4ZSoOsLAht43HJWkgFOnfunptU7zalqS2EJbbSnvdjCkmLhAlABFpImLHpXSgdYQNadCRZLLlibEk6TqV+1PlEzXJbhK9CCtbhtLSm9KkiNWsgd20EWrm3bsuc5XhyVhKXIkFRC0gJlASEgD9WFdSNo6CDDreISppOmE/EpYWOp0ojuq/DpeiTWGRrCnEuL+z0nUyqREWKjJUYJTa3jearrwKuzCG2yXJCxKFNaOahEaVTJE859abAHuqxTamWEaEJT3joOnUYuFFRiYIOnqR51UTkqu0U84S4ArTpV3t5CbyEkTFpAMRIJijzuFBSlCUqSgXGllYJKoJKhp3tHpaLRIhC0BR+1dB1JLZZWAQZjcRaZsJPjU62uhFeorJD7WYJIStBUtITq++JSFcyINzHKRVrE4orzCNcpD6dgL6SEiT7+9F2MO82NSGC48lfdCkaUJG0yD8UWFzEnxoV/s863iGnioKl4FUAjSqRIue8I2IHKrak+voRTXQexUiTUQNdJNZjqdzWE1mqtVJB5N+jM0ADQcQUDaXEmPUiRR3IMmcZbUXHErUtQURIgepMk/hWVlajOHMOFfsjxK0knzJNWFBciCkDn3k/K9qysoCJLbnUKE37yfzqhmWZPNAtNsgkwdSdICZ3i95i58a3WUAj4fhh/EuqJAalUm459O8STTHgeBEIUFEKWodVQOXIGtVlAG3sC5YBsx6fjUZy90gCFSDyI/PesrKAxWXu7aVepFvHcVMcK4kI7kwNwobzb5c6ysoCVbS5EpgnaSL/O9cpwT2+gnpfw8DWVlAWsNl7liUzbmq8++1SPpd20+moVlZQFPE5frMrZ1GIuoe3xbVA7w6iDGHTf9r/71qsoDlrhZqJVh03/AGz8xqpSwPC+POLLy8OUi4B7RBEcvvav9LcqysqGrVEp07GhOU4gXKP7w/ca21gHT91Vt7j5XrKyuP08Trz5EuGwy1GADIE8hVnFsKbZccdENoSS4TySbGwMnflWVlTyIrzI5zFocR5Z/P2//J+VdDP8q37ZP/yflWVlW5fdkczsdHiDKf55Pr2v5V1/tDlO/bJ/+T8qyspy+7I19jY4hymZ7ZMxv9rPvFdJ4jykCA+kDp9rWVlOX3Y19jBxDlEz2yZ6/aT+H8XrP09k386i21nPyrdZTl92NfYz9P5N/Oo9nPyqZvirKUkKS8iU3B0rMWItKd4JvWVlOX3GstjjvL/+qT/ZX/lrBx3l3/VJ/sr/AMtZWVHKQ5jOv9vcv/6pP9lf+Wt/7e5d/wBUk/1V/wCSsrKnlIcxn//Z" alt="Research paper thumbnail image" class="paper-thumbnail" loading="lazy" decoding="async">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The Criminal Tribes Act of 1871 and its Global Legacy</h3>
+                        <div class="paper-authors">I. Ranjan, A. Pruthy</div>
+                        <div class="paper-year">2025</div>
+                        <div class="paper-tags">
+                            <span class="chip">Politics</span><span class="chip">Social Sciences</span><span class="chip">Law</span>
+                        </div>
+                        <div class="paper-abstract">The Criminal Tribes Act of 1871, imposed by British colonial authorities in India, was a
+draconian law that branded entire communities as "hereditary criminals," enforcing systematic
+surveillance, forced settlement, and social ostracization. This paper provides a comprehensive
+examination of the Act's origins, implementation, and enduring legacy. It begins by
+contextualizing the Act within India's caste system, tracing how ancient religious codifications
+– from the Rigveda to the Manusmriti – established and justified a rigid hierarchy that colonial
+policies later exploited. We analyze the language and intent of the Act, illustrating how the
+British administration wielded it as an instrument to control nomadic and marginalized groups
+by presuming criminality by birth. The short-term impacts on Dalits (formerly
+"Untouchables"), Adivasis (indigenous tribes), and other minorities were severe: communities
+faced loss of land, curtailed freedoms, and state-sanctioned stigma, with an estimated thirteen
+million people across 127 communities directly affected by Independence. The Act's
+long-term repercussions persisted well beyond its repeal in 1949, as independent India's
+Habitual Offenders Act (1952) continued to profile and police these denotified tribes,
+entrenching cycles of poverty and prejudice.
+
+Crucially, this paper situates the Criminal Tribes Act in a comparative global context. Parallels
+are drawn to other systems of institutionalized oppression: the Jim Crow laws in the United
+States, which enforced a codified racial apartheid and denied African Americans basic rights;
+the internment of Japanese Americans during World War II, whereby ~120,000 people
+(two-thirds U.S. citizens) were incarcerated without cause; and South Africa's apartheid
+regime, which legally classified citizens by race to maintain white supremacy. These
+
+Criminal Tribes Act of 1871 Ranjan and Pruthy 3
+
+comparisons reveal common patterns of using the law to strip targeted groups of rights under
+the guise of "social order" or "national security." The paper also examines modern surveillance
+measures – from preventive detention of Muslims under anti-terror laws to predictive policing
+technologies – arguing that the underlying logic of collective suspicion echoes the legacy of the
+1871 Act in contemporary forms.
+
+Through extensive use of scholarly sources, including archival colonial reports and the
+writings of historians and anthropologists, as well as eyewitness accounts and recent news
+reports, we highlight how the narrative of "born criminals" created by the Act remains etched
+in societal attitudes. We incorporate historical data (caste-based census records, crime
+statistics) and present-day metrics (crime rates against Dalits, wealth and education disparities
+by caste) to visualize the enduring impact. Graphs and charts are used to illustrate trends such
+as the economic marginalization of Dalits and the racial disparities in incarceration that mirror
+caste inequalities. Ultimately, this study demonstrates that while the Criminal Tribes Act was
+repealed, its spirit survives in prejudices and legal practices worldwide. It calls for a critical
+re-examination of laws and social structures that continue to otherize and criminalize
+marginalized communities, advocating for reforms grounded in equality, restorative justice, and
+the protection of fundamental rights. The global legacy of the Criminal Tribes Act serves as a
+cautionary tale of how state power can perpetuate social stratification – and a reminder of the
+ongoing struggle to dismantle such oppressive systems.</div>
+                        <div class="paper-actions">
+                            <button class="btn btn-primary" onclick="viewPaper('paper-1754023361560')">View</button>
+                            <button class="btn btn-secondary" onclick="downloadPaper('paper-1754023361560')">Download</button>
+                            <button class="btn btn-secondary" onclick="viewDetails('paper-1754023361560')">Details</button>
+                            <button class="btn btn-secondary remove-paper-btn" onclick="removePaper('paper-1754023361560')" style="display: none;">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <h3>No papers found</h3>
+                <p>Try adjusting your search or filters to find what you're looking for.</p>
+                <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section id="timeline" class="container">
+            <div class="section-header">
+                <h2>Research Timeline</h2>
+                <p>Follow our structured approach to research development and publication.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Kickoff</h3>
+                        <p>Orientation and team formation</p>
+                        <span class="timeline-date">September</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Form Teams</h3>
+                        <p>Collaborate with peers and mentors</p>
+                        <span class="timeline-date">October</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Proposal Review</h3>
+                        <p>Research proposal development and feedback</p>
+                        <span class="timeline-date">November</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Midpoint Check-in</h3>
+                        <p>Progress review and methodology refinement</p>
+                        <span class="timeline-date">January</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Drafts Due</h3>
+                        <p>Complete research and initial writing</p>
+                        <span class="timeline-date">March</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Competitions</h3>
+                        <p>Present at science fairs and competitions</p>
+                        <span class="timeline-date">April-May</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Publication</h3>
+                        <p>Submit to journals and publish findings</p>
+                        <span class="timeline-date">June</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Competitions Section -->
+        <section id="competitions" class="container">
+            <div class="section-header">
+                <h2>Competitions &amp; Publications</h2>
+                <p>Showcase your research at prestigious competitions and publish in respected platforms.</p>
+            </div>
+            
+            <div class="competitions-grid">
+                <div class="card competition-card">
+                    <h3>Science Fair</h3>
+                    <p>Present your research to peers and faculty in our annual science fair competition.</p>
+                </div>
+                
+                <div class="card competition-card">
+                    <h3>Junior Science &amp; Humanities Symposium (JSHS)</h3>
+                    <p>Compete at the regional and national level in this prestigious research competition.</p>
+                </div>
+                
+                <div class="card competition-card">
+                    <h3>Research Olympiad</h3>
+                    <p>Test your research skills against students from around the world.</p>
+                </div>
+                
+                <div class="card competition-card">
+                    <h3>Journals &amp; Platforms</h3>
+                    <p>Publish in arXiv, DOAJ, Medium, and our club's research repository.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section id="team" class="container">
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Meet the leaders and mentors behind Research Club.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>I</span>
+                    </div>
+                    <h3>Ishaan</h3>
+                    <p class="member-role">President</p>
+                     </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <span>R</span>
+                    </div>
+                    <h3>Ronit</h3>
+                    <p class="member-role">President</p>
+                    </div>
+                
+                
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about joining and participating in Research Club.</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Do I need prior research experience to join?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No prior experience is required! We welcome students at all levels and provide comprehensive training and mentorship to help you develop your research skills.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How do we choose research topics?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Topics are chosen through a collaborative process. You can propose your own ideas or select from our curated list of research areas. We help you refine and develop your research questions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How do I get my research published?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We guide you through the publication process, from manuscript preparation to submission. We have partnerships with various journals and platforms to help you get published.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How are research teams formed?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Teams are formed based on research interests, complementary skills, and availability. You can work individually or in groups of 2-4 students, depending on the project scope.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        What are the time commitments and deadlines?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We have a structured timeline with regular check-ins. Most projects require 5-10 hours per week, with key milestones throughout the academic year.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Can I work on a solo research project?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Solo projects are welcome and can be very rewarding. You'll still receive mentorship and support from our team and advisors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <div class="section-header">
+                <h2>Join Research Club</h2>
+                <p>Ready to start your research journey? Get in touch with us!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get Started</h3>
+                    <p>Applications are closed for now. We will open them again in the next academic year.</p>
+                    <div class="contact-details">
+                        <p><strong>Email:</strong> ishaanranjan15@gmail.com</p>
+                        <p><strong>Meeting Time:</strong> Tuesdays 11:55-12:30 PM</p>
+                        <p><strong>Location:</strong> Grant's Room</p>
+                    </div>
+                </div>
+                
+                <div class="contact-action">
+                    <a href="https://forms.google.com/placeholder" class="btn btn-primary" target="_blank" rel="noopener">
+                        Apply to Join Research Club
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Research Club</h3>
+                    <p>Empowering students to explore, discover, and contribute to meaningful research.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#papers">Papers</a></li>
+                        <li><a href="#competitions">Competitions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        
+                        <a href="https://www.instagram.com/bphs_research_club/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                            </svg>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Research Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <div class="modal" id="pdf-modal" aria-modal="false" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Research Paper</h3>
+                <button class="modal-close" id="modal-close" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="details-modal" aria-modal="false" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="details-modal-title">Paper Details</h3>
+                <button class="modal-close" id="details-modal-close" aria-label="Close modal">×</button>
+            </div>
+            <div class="modal-body" id="details-modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+       
+       const paperLinks = {
+  'paper-1754623359618': 'https://drive.google.com/file/d/1HP6SYlDW2yh4IZqntvRTfVpMlh3wi3n7/view?usp=sharing', // Water filtration techniques
+  'paper-1754621046703': 'https://drive.google.com/file/d/1XUCi4_CtNKe-bYK3OqdN6GmCq3yBfXrN/view?usp=sharing', // Multi-omics deep learning framework
+  'paper-1754620718146': 'https://drive.google.com/file/d/1eRI986-YYn-pY_ze9m0RzvQynIEeE7UY/view?usp=sharing', // Quantum computing
+  'paper-1754620624949': 'https://drive.google.com/file/d/1lmbpzcKEWhzqu7tcgnMza--luFdX10Xf/view?usp=sharing', // SABER bioreactor
+  'paper-1754620352082': 'https://drive.google.com/file/d/1xTZdX1roUsigBjthHp5iX721A4chHM7m/view?usp=sharing', // Dangers of ICC
+  'paper-1754620012486': 'https://drive.google.com/file/d/1-E4HBycXMymW5eX8ZTLwlUA3NH22uc6c/view?usp=sharing', // Positive vs Negative Reinforcement
+  'paper-1754023361560': 'https://drive.google.com/file/d/12uaZpjuBSfdZSJumxdreOsNFzPc7sbUy/view?usp=sharing'  // Criminal Tribes Act
+};
+        // Global variables
+        let papers = [];
+        let filteredPapers = [...papers];
+        let currentCarouselSlide = 0;
+        let carouselInterval;
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
+            initializeCarousel();
+            initializePapers();
+            initializeFAQ();
+            initializeAdmin();
+            initializeModals();
+        });
+        
+        // Navigation functionality
+        function initializeNavigation() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const header = document.querySelector('.header');
+            
+            // Mobile menu toggle
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Active navigation highlighting
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Carousel functionality
+        function initializeCarousel() {
+            const carouselTrack = document.getElementById('carousel-track');
+            const carouselDots = document.getElementById('carousel-dots');
+            const slides = document.querySelectorAll('.carousel-slide');
+            
+            console.log('Found', slides.length, 'carousel slides');
+            
+            if (slides.length === 0) return;
+            
+            // Clear existing dots
+            carouselDots.innerHTML = '';
+            
+            // Create dots for existing slides
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(index));
+                carouselDots.appendChild(dot);
+            });
+            
+            // Reset current slide and set initial position
+            currentCarouselSlide = 0;
+            
+            // Ensure carousel track starts at the first slide
+            if (carouselTrack) {
+                carouselTrack.style.transform = 'translateX(0)';
+                carouselTrack.style.width = `${slides.length * 100}%`;
+            }
+            
+            // Carousel controls
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    goToSlide(currentCarouselSlide - 1);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    goToSlide(currentCarouselSlide + 1);
+                });
+            }
+            
+            // Auto-play
+            startCarouselAutoPlay();
+            
+            // Pause on hover
+            const carousel = document.getElementById('featured-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', stopCarouselAutoPlay);
+                carousel.addEventListener('mouseleave', startCarouselAutoPlay);
+            }
+        }
+        
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (slides.length === 0) return;
+            
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            
+            currentCarouselSlide = index;
+            
+            // Update track position
+            const carouselTrack = document.getElementById('carousel-track');
+            if (carouselTrack) {
+                carouselTrack.style.transform = `translateX(-${index * 100}%)`;
+            }
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        function startCarouselAutoPlay() {
+            stopCarouselAutoPlay(); // Clear any existing interval
+            carouselInterval = setInterval(() => {
+                goToSlide(currentCarouselSlide + 1);
+            }, 6000);
+        }
+        
+        function stopCarouselAutoPlay() {
+            if (carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = null;
+            }
+        }
+        
+        // Papers functionality
+        function initializePapers() {
+            // Since we're using existing HTML structure, just initialize filters
+            initializeFilters();
+        }
+        
+        function initializeFilters() {
+            const searchInput = document.getElementById('search-input');
+            const yearFilter = document.getElementById('year-filter');
+            const sortBy = document.getElementById('sort-by');
+            const featuredOnly = document.getElementById('featured-only');
+            
+            // Search functionality
+            searchInput.addEventListener('input', filterPapers);
+            
+            // Year filter
+            yearFilter.addEventListener('change', filterPapers);
+            
+            // Sort functionality
+            sortBy.addEventListener('change', filterPapers);
+            
+            // Featured toggle
+            featuredOnly.addEventListener('change', filterPapers);
+            
+            // Initial filter
+            filterPapers();
+        }
+        
+        function filterPapers() {
+            // For now, just show a message that filtering is not implemented
+            // since we're using existing HTML structure
+            console.log('Filtering functionality is not implemented for the current HTML structure');
+        }
+        
+        function updateTagFilters() {
+            const tagFilters = document.getElementById('tag-filters');
+            const allTags = [...new Set(papers.flatMap(paper => paper.tags))];
+            
+            tagFilters.innerHTML = allTags.map(tag => `
+                <span class="chip" onclick="toggleTagFilter('${tag}')" data-tag="${tag}">${tag}</span>
+            `).join('');
+        }
+        
+        function toggleTagFilter(tag) {
+            const chip = document.querySelector(`[data-tag="${tag}"]`);
+            chip.classList.toggle('active');
+            
+            const activeTags = Array.from(document.querySelectorAll('.chip.active')).map(c => c.dataset.tag);
+            
+            if (activeTags.length === 0) {
+                // No tag filters active, show all papers
+                filterPapers();
+            } else {
+                // Filter by active tags
+                filteredPapers = papers.filter(paper => 
+                    paper.tags.some(tag => activeTags.includes(tag))
+                );
+                renderPapers();
+            }
+        }
+        
+        function clearFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('year-filter').value = '';
+            document.getElementById('sort-by').value = 'newest';
+            document.getElementById('featured-only').checked = false;
+            
+            // Clear tag filters
+            document.querySelectorAll('.chip.active').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            
+            filteredPapers = [...papers];
+            renderPapers();
+        }
+        
+        // Paper actions
+        function viewPaper(paperId) {
+  const link = paperLinks[paperId] || paperId; // if a full URL is ever passed directly
+  if (!link) { alert('Link not set for this paper yet.'); return; }
+  window.open(link, '_blank', 'noopener');
+}
+
+function downloadPaper(paperId) {
+  const link = paperLinks[paperId] || paperId;
+  if (!link) { alert('Link not set for this paper yet.'); return; }
+  // Convert Google Drive file link to a direct download when possible
+  const m = link.match(/\/file\/d\/([^/]+)/);
+  const direct = m ? `https://drive.google.com/uc?export=download&id=${m[1]}` : link;
+  window.open(direct, '_blank', 'noopener');
+}
+        
+        function viewDetails(paperId) {
+            // For now, just show a simple message since we don't have paper data
+            const modal = document.getElementById('details-modal');
+            const modalTitle = document.getElementById('details-modal-title');
+            const modalBody = document.getElementById('details-modal-body');
+            
+            modalTitle.textContent = 'Paper Details';
+            modalBody.innerHTML = `
+                <div class="paper-details">
+                    <p><strong>Paper ID:</strong> ${paperId}</p>
+                    <p>This paper is available for viewing and download through Google Drive.</p>
+                    <p>Click the "View" or "Download" button to access the full paper.</p>
+                </div>
+            `;
+            
+            openModal(modal);
+        }
+        
+        // Admin functionality
+        function initializeAdmin() {
+            const adminToggle = document.getElementById('admin-toggle');
+            const adminForm = document.getElementById('admin-form');
+            const addPaperForm = document.getElementById('add-paper-form');
+            const exportBtn = document.getElementById('export-json');
+            const importBtn = document.getElementById('import-json');
+            
+            // Admin toggle
+            adminToggle.addEventListener('click', function() {
+                const password = prompt('Enter admin password:');
+                if (password === 'club2025') {
+                    adminForm.classList.toggle('active');
+                    toggleRemoveButtons();
+                } else if (password !== null) {
+                    alert('Incorrect password');
+                }
+            });
+            
+            // Add paper form
+            addPaperForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newPaper = {
+                    id: `paper-${Date.now()}`,
+                    title: document.getElementById('paper-title').value,
+                    authors: document.getElementById('paper-authors').value,
+                    year: parseInt(document.getElementById('paper-year').value),
+                    advisor: document.getElementById('paper-advisor').value || null,
+                    abstract: document.getElementById('paper-abstract').value,
+                    tags: document.getElementById('paper-tags').value.split(',').map(tag => tag.trim()).filter(tag => tag),
+                    featured: document.getElementById('paper-featured').checked,
+                    pdfUrl: document.getElementById('paper-pdf').value,
+                    thumbnail: document.getElementById('paper-thumbnail').value || 'https://images.unsplash.com/photo-1523240798131-8b6c83ea8e5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+                    alt: 'Research paper thumbnail image'
+                };
+                
+                papers.unshift(newPaper);
+                savePapersToStorage();
+                filterPapers();
+                addPaperForm.reset();
+                
+                alert('Paper added successfully!');
+            });
+            
+            // Export JSON
+            exportBtn.addEventListener('click', function() {
+                const dataStr = JSON.stringify(papers, null, 2);
+                navigator.clipboard.writeText(dataStr).then(() => {
+                    alert('Papers data copied to clipboard!');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = dataStr;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Papers data copied to clipboard!');
+                });
+            });
+            
+            // Import JSON
+            importBtn.addEventListener('click', function() {
+                const jsonData = prompt('Paste the JSON data here:');
+                if (jsonData) {
+                    try {
+                        const importedPapers = JSON.parse(jsonData);
+                        papers = importedPapers;
+                        savePapersToStorage();
+                        filterPapers();
+                        alert('Papers imported successfully!');
+                    } catch (error) {
+                        alert('Invalid JSON data. Please check the format.');
+                    }
+                }
+            });
+        }
+        
+        // FAQ functionality
+        function initializeFAQ() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close other answers
+                    faqQuestions.forEach(q => {
+                        if (q !== this) {
+                            q.setAttribute('aria-expanded', 'false');
+                            q.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current answer
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    answer.classList.toggle('active');
+                });
+                
+                // Keyboard support
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        }
+        
+        // Modal functionality
+        function initializeModals() {
+            const modals = document.querySelectorAll('.modal');
+            
+            modals.forEach(modal => {
+                const closeBtn = modal.querySelector('.modal-close');
+                
+                closeBtn.addEventListener('click', () => closeModal(modal));
+                
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+            
+            // ESC key to close modals
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.classList.contains('active')) {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+        }
+        
+        function openModal(modal) {
+            modal.classList.add('active');
+            modal.setAttribute('aria-modal', 'true');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus trap
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                focusableElements[0].focus();
+            }
+        }
+        
+        function closeModal(modal) {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-modal', 'false');
+            document.body.style.overflow = '';
+        }
+        
+        // Admin remove functionality
+        function toggleRemoveButtons() {
+            const removeButtons = document.querySelectorAll('.remove-paper-btn');
+            const adminForm = document.getElementById('admin-form');
+            const isAdminActive = adminForm.classList.contains('active');
+            
+            removeButtons.forEach(button => {
+                button.style.display = isAdminActive ? 'inline-flex' : 'none';
+            });
+        }
+        
+        function removePaper(paperId) {
+            const paper = papers.find(p => p.id === paperId);
+            if (!paper) return;
+            
+            const confirmRemove = confirm(`Are you sure you want to remove "${paper.title}"? This action cannot be undone.`);
+            
+            if (confirmRemove) {
+                // Remove from papers array
+                papers = papers.filter(p => p.id !== paperId);
+                
+                // Update filtered papers
+                filteredPapers = filteredPapers.filter(p => p.id !== paperId);
+                
+                // Save to storage
+                savePapersToStorage();
+                
+                // Re-render papers
+                renderPapers();
+                
+                // Re-initialize carousel if needed
+                initializeCarousel();
+                
+                alert('Paper removed successfully!');
+            }
+        }
+        
+        // Local storage functionality
+        function savePapersToStorage() {
+            localStorage.setItem('researchClubPapers', JSON.stringify(papers));
+        }
+        
+        function loadPapersFromStorage() {
+            const stored = localStorage.getItem('researchClubPapers');
+            if (stored) {
+                try {
+                    papers = JSON.parse(stored);
+                    filteredPapers = [...papers];
+                    renderPapers();
+                    initializeCarousel();
+                } catch (error) {
+                    console.error('Error loading papers from storage:', error);
+                }
+            }
+        }
+        
+        // Utility functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Add JSON-LD schema for featured paper
+        function addSchemaMarkup() {
+            const featuredPaper = papers.find(p => p.featured);
+            if (featuredPaper) {
+                const schema = {
+                    "@context": "https://schema.org",
+                    "@type": "ScholarlyArticle",
+                    "headline": featuredPaper.title,
+                    "author": featuredPaper.authors.split(',').map(author => ({
+                        "@type": "Person",
+                        "name": author.trim()
+                    })),
+                    "datePublished": `${featuredPaper.year}-01-01`,
+                    "abstract": featuredPaper.abstract,
+                    "keywords": featuredPaper.tags.join(', '),
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Research Club"
+                    }
+                };
+                
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(schema);
+                document.head.appendChild(script);
+            }
+        }
+        
+        // Initialize schema markup
+        setTimeout(addSchemaMarkup, 1000);
+    </script>
+
+
+</body></html>
